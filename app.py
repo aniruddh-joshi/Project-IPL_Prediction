@@ -1,38 +1,16 @@
-# from flask import Flask, request, render_template
-# import pandas as pd
-# import pickle
-
-# app = Flask(__name__)
-
-# # Load your trained model
-# try:
-#     model = pickle.load(open("ipl_pred_model.pkl", "rb"))
-# except FileNotFoundError:
-#     model = None  # Handle missing model during testing
-#     print("Warning: Model file not found!")
-    
 from flask import Flask, request, render_template
 import pandas as pd
-import zipfile
 import pickle
 
 app = Flask(__name__)
 
-# Load your trained model from the .zip file
-zip_file_path = "ipl_pred_model.zip"  # Path to the .zip file
-pkl_file_name = "ipl_pred_model.pkl"  # Name of the .pkl file inside the zip
-
+# Load your trained model
 try:
-    with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
-        with zip_ref.open(pkl_file_name) as f:
-            model = pickle.load(f)
-    print("Model loaded successfully!")
+    model = pickle.load(open("ipl_pred_model.pkl", "rb"))
 except FileNotFoundError:
-    model = None  # Handle missing .zip file during testing
-    print("Warning: Model zip file not found!")
-except Exception as e:
-    model = None
-    print(f"Error loading model: {e}")
+    model = None  # Handle missing model during testing
+    print("Warning: Model file not found!")
+    
 
 # Team color mapping
 TEAM_COLORS = {
