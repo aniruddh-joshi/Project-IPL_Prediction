@@ -2,7 +2,7 @@
 🏏 **IPL Winning Team Prediction**: A smart web app that uses machine learning to predict IPL match winners based on real-time stats and historical data! 📊⚡
 
 ## 🎥 Demo
-![Image 1](img.png) ![Image 2](img2.png)
+![Image 1](img1.png) ![Image 2](img2.png)
 
 
 ---
