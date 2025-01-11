@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Prediction App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .developer {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ff9800;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .developer span {
+            color: #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏏 IPL Prediction App</h1>
+            <p>Predict match outcomes based on real-time match data!</p>
+        </div>
+
+        <!-- Developer Credit -->
+        <div class="developer">
+            Developed By: <span>Aniruddh Joshi</span>
+        </div>
+
+        <form id="predictionForm" class="form-container" action="/predict" method="POST">
+            <!-- Team Selection -->
+            <div class="row">
+                <div class="form-group">
+                    <label for="batting_team">Batting Team:</label>
+                    <select id="batting_team" name="batting_team" required>
+                        <option value="" disabled selected>Select Team</option>
+                        <option value="CSK">Chennai Super Kings</option>
+                        <option value="RCB">Royal Challengers Bangalore</option>
+                        <option value="MI">Mumbai Indians</option>
+                        <option value="KKR">Kolkata Knight Riders</option>
+                        <option value="SRH">Sunrisers Hyderabad</option>
+                        <option value="RR">Rajasthan Royals</option>
+                        <option value="PBKS">Punjab Kings</option>
+                        <option value="DC">Delhi Capitals</option>
+                        <option value="LSG">Lucknow Super Giants</option>
+                        <option value="GT">Gujarat Titans</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="bowling_team">Bowling Team:</label>
+                    <select id="bowling_team" name="bowling_team" required>
+                        <option value="" disabled selected>Select Team</option>
+                        <option value="CSK">Chennai Super Kings</option>
+                        <option value="RCB">Royal Challengers Bangalore</option>
+                        <option value="MI">Mumbai Indians</option>
+                        <option value="KKR">Kolkata Knight Riders</option>
+                        <option value="SRH">Sunrisers Hyderabad</option>
+                        <option value="RR">Rajasthan Royals</option>
+                        <option value="PBKS">Punjab Kings</option>
+                        <option value="DC">Delhi Capitals</option>
+                        <option value="LSG">Lucknow Super Giants</option>
+                        <option value="GT">Gujarat Titans</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Venue and Toss -->
+            <div class="form-group">
+                <label for="toss_winner">Toss Winner:</label>
+                <select id="toss_winner" name="toss_winner" required>
+                    <option value="" disabled selected>Select Team</option>
+                    <option value="CSK">Chennai Super Kings</option>
+                    <option value="RCB">Royal Challengers Bangalore</option>
+                    <option value="MI">Mumbai Indians</option>
+                    <option value="KKR">Kolkata Knight Riders</option>
+                    <option value="SRH">Sunrisers Hyderabad</option>
+                    <option value="RR">Rajasthan Royals</option>
+                    <option value="PBKS">Punjab Kings</option>
+                    <option value="DC">Delhi Capitals</option>
+                    <option value="LSG">Lucknow Super Giants</option>
+                    <option value="GT">Gujarat Titans</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="venue">Venue:</label>
+                <select id="venue" name="venue" required>
+                    <option value="" disabled selected>Select Team</option>
+                    <option value="Punjab Cricket Association IS Bindra Stadium, Mohali, Chandigarh">Punjab Cricket Association IS Bindra Stadium, Mohali, Chandigarh</option>
+                    <option value="M.Chinnaswamy Stadium, Bengaluru">M.Chinnaswamy Stadium, Bengaluru</option>
+                    <option value="Himachal Pradesh Cricket Association Stadium, Dharamsala">Himachal Pradesh Cricket Association Stadium, Dharamsala</option>
+                    <option value="Arun Jaitley Stadium, Delhi">Arun Jaitley Stadium, Delhi</option>
+                    <option value="Maharashtra Cricket Association Stadium, Pune">Maharashtra Cricket Association Stadium, Pune</option>
+                    <option value="Dr DY Patil Sports Academy, Mumbai">Dr DY Patil Sports Academy, Mumbai</option>
+                    <option value="Eden Gardens, Kolkata">Eden Gardens, Kolkata</option>
+                    <option value="Wankhede Stadium, Mumbai">Wankhede Stadium, Mumbai</option>
+                    <option value="Barabati Stadium, Cuttack">Barabati Stadium, Cuttack</option>
+                    <option value="Holkar Cricket Stadium, Indore">Holkar Cricket Stadium, Indore</option>
+                    <option value="Sharjah Cricket Stadium">Sharjah Cricket Stadium</option>
+                    <option value="Sawai Mansingh Stadium, Jaipur">Sawai Mansingh Stadium, Jaipur</option>
+                    <option value="Sardar Patel (Gujarat) Stadium, Motera, Ahmedabad">Sardar Patel (Gujarat) Stadium, Motera, Ahmedabad</option>
+                    <option value="MA Chidambaram Stadium, Chepauk, Chennai">MA Chidambaram Stadium, Chepauk, Chennai</option>
+                    <option value="Vidarbha Cricket Association Stadium, Jamtha, Nagpur">Vidarbha Cricket Association Stadium, Jamtha, Nagpur</option>
+                    <option value="Sheikh Zayed Stadium, Abu Dhabi">Sheikh Zayed Stadium, Abu Dhabi</option>
+                    <option value="Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow">Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow</option>
+                    <option value="SuperSport Park, Centurion">SuperSport Park, Centurion</option>
+                    <option value="Dubai International Cricket Stadium">Dubai International Cricket Stadium</option>
+                    <option value="Narendra Modi Stadium, Motera, Ahmedabad">Narendra Modi Stadium, Motera, Ahmedabad</option>
+                    <option value="Dr DY Patil Sports Academy, Navi Mumbai">Dr DY Patil Sports Academy, Navi Mumbai</option>
+                    <option value="Newlands, Cape Town">Newlands, Cape Town</option>
+                    <option value="Rajiv Gandhi International Stadium, Uppal, Hyderabad">Rajiv Gandhi International Stadium, Uppal, Hyderabad</option>
+                    <option value="JSCA International Stadium Complex, Ranchi">JSCA International Stadium Complex, Ranchi</option>
+                    <option value="Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium, Visakhapatnam">Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium, Visakhapatnam</option>
+                    <option value="St George's Park, Port Elizabeth">St George's Park, Port Elizabeth</option>
+                    <option value="Brabourne Stadium, Mumbai">Brabourne Stadium, Mumbai</option>
+                    <option value="Kingsmead, Durban">Kingsmead, Durban</option>
+                    <option value="Shaheed Veer Narayan Singh International Stadium, Raipur">Shaheed Veer Narayan Singh International Stadium, Raipur</option>
+                    <option value="Mangaung Oval, Bloemfontein">Mangaung Oval, Bloemfontein</option>
+                    <option value="The Wanderers Stadium, Johannesburg">The Wanderers Stadium, Johannesburg</option>
+                    <option value="Buffalo Park, East London">Buffalo Park, East London</option>
+                    <option value="Diamond Oval, Kimberley">Diamond Oval, Kimberley</option>
+                    <option value="Barsapara Cricket Stadium, Guwahati">Barsapara Cricket Stadium, Guwahati</option>
+                </select>
+            </div>
+
+            <!-- Match Stats -->
+            <div class="row">
+                <div class="form-group">
+                    <label for="runs_scored">Runs Scored:</label>
+                    <input type="number" id="runs_scored" name="runs_scored" min="0" max="500" required placeholder="Enter runs scored">
+                </div>
+
+                <div class="form-group">
+                    <label for="wickets_down">Wickets Down:</label>
+                    <input type="number" id="wickets_down" name="wickets_down" min="0" max="10" required placeholder="Enter wickets down">
+                </div>
+            </div>
+
+            <div class="row form-group-inline">
+                <div>
+                    <label for="current_over">Current Over:</label>
+                    <input type="number" id="current_over" name="current_over" min="0" max="20" required placeholder="Overs">
+                </div>
+
+                <div>
+                    <label for="current_ball">Current Ball:</label>
+                    <input type="number" id="current_ball" name="current_ball" min="0" max="6" required placeholder="Balls">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="target_runs">Target Runs:</label>
+                <input type="number" id="target_runs" name="target_runs" min="0" max="500" required placeholder="Target runs">
+            </div>
+
+            <button type="submit" class="predict-btn">Predict Outcome</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

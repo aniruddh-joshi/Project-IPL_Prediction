@@ -1,0 +1,98 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: url('background-img.webp') no-repeat center center / cover;
+    color: #f8fafc;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styling */
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    padding-left: 10px;
+    background: #0f172a;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+/* Header */
+.header h1 {
+    font-size: 2.5rem;
+    color: #60a5fa;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1rem;
+    color: #cbd5e1;
+}
+
+/* Form Styling */
+.form-container {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.form-group-inline {
+    display: flex;
+    gap: 5px; /* Reduced gap between inputs */
+    justify-content: space-between;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #f8fafc;
+}
+
+select, input {
+    width: 95%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #1e293b;
+    color: #f8fafc;
+}
+
+select:focus, input:focus {
+    outline: none;
+    border: 1px solid #38bdf8;
+    box-shadow: 0 0 5px #38bdf8;
+}
+
+/* Button Styling */
+.predict-btn {
+    padding: 15px 30px;
+    background: linear-gradient(90deg, #0ea5e9, #2563eb);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: transform 0.3s, background 0.3s;
+    width: 100%;
+}
+
+.predict-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #2563eb, #0ea5e9);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .form-group-inline {
+        flex-direction: column;
+    }
+}

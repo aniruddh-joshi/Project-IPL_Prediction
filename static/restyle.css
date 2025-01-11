@@ -1,0 +1,112 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: url('background-img.webp') no-repeat center center fixed;
+    background-size: cover;  /* Ensure the background covers the full viewport */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0 0 20px;
+    color: #007bff;
+}
+
+.results h2 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.team {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.prediction {
+    font-size: 1.2em;
+    margin: 15px 0;
+}
+
+.progress-bar {
+    background-color: #e9ecef;
+    height: 20px;
+    border-radius: 10px;
+    margin: 10px auto 20px;
+    width: 80%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+}
+
+.progress.batting {
+    background-color: #28a745; /* Green for batting team */
+}
+
+.progress.bowling {
+    background-color: #ff5733; /* Orange for bowling team */
+}
+
+.outcome {
+    font-size: 1.5em;
+    margin: 20px 0;
+    color: #28a745;
+}
+
+.predict-btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.predict-btn:hover {
+    background-color: #0056b3;
+}
+.progress-bar {
+    background-color: #e9ecef;
+    height: 20px;
+    border-radius: 10px;
+    margin: 10px auto 20px;
+    width: 80%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Team-specific colors */
+.KKR { background-color: purple; }
+.CSK { background-color: yellow; }
+.SRH { background-color: orange; }
+.RR { background-color: pink; }
+.MI { background-color: blue; }
+.RCB { background-color: red; }
+.KXIP { background-color: red; }
+.DC { background-color: blue; }
+.LSG { background-color: lightblue; }
+.GT { background-color: blue; }

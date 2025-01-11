@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='restyle.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏏 Prediction Result</h1>
+        </div>
+
+        <div class="results">
+            <h2>Batting Team: {{ batting_team or 'N/A' }}</h2>
+            <h2>Bowling Team: {{ bowling_team or 'N/A' }}</h2>
+
+            <p class="prediction">Chance of Winning for {{ batting_team or 'N/A' }}: <strong>{{ prediction_text or 0 }}%</strong></p>
+            <div class="progress-bar">
+                <div class="progress {{ batting_team_color }}" style="width: {{ prediction_text or 0 }}%;"></div>
+            </div>
+
+            <p class="prediction">Chance of Winning for {{ bowling_team or 'N/A' }}: <strong>{{ prediction_text2 or 0 }}%</strong></p>
+            <div class="progress-bar">
+                <div class="progress {{ bowling_team_color }}" style="width: {{ prediction_text2 or 0 }}%;"></div>
+            </div>
+
+            <h2>{{ prediction_outcome or 'No prediction available.' }}</h2>
+    
+        </div>
+
+        <a href="/" class="predict-btn">Back to Home</a>
+    </div>
+</body>
+</html>
