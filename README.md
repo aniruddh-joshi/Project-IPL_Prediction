@@ -3,7 +3,7 @@
 
 ## 🎥 Demo
 <div style="display: flex; justify-content: space-between;">
-  <img src="img11.png" width="45%" />
+  <img src="img1.png" width="45%" />
   <img src="img2.png" width="45%" />
 </div>
 
